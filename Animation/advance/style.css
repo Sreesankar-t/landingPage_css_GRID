@@ -1,0 +1,192 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+/* global setting */
+a {
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+  margin: 0px auto;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  grid-template-rows: 1fr 4fr 1.2fr 1.2fr;
+  grid-template-areas:
+    'logo logo header'
+    'main main imgbox'
+    'quotes quotes imgbox'
+    'btn1 btn2 imgbox';
+}
+.logo {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(204, 239, 211);
+}
+.logo a {
+  color: rgb(45, 143, 63);
+  font-weight: 700;
+  font-size: 45px;
+  text-decoration: none;
+}
+.main {
+  grid-area: main;
+  padding: 0 125px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.main h1 {
+  font-size: 36px;
+  line-height: 49px;
+  font-weight: 700;
+  padding-left: 125px;
+  margin-bottom: 20px;
+}
+.pop-in {
+  animation: popIn 2s ease-in forwards;
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.quotes {
+  grid-area: quotes;
+  padding: 0px 100px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(204, 239, 211);
+}
+.quotes h2 {
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: 700;
+}
+.btn a {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn1 {
+  grid-area: btn1;
+  background-color: rgb(88, 182, 93);
+}
+.btn2 {
+  grid-area: btn2;
+  background-color: rgb(46, 98, 33);
+}
+
+.btn :hover {
+  background-color: rgb(206, 227, 184);
+  color: green;
+}
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background-color: rgb(175, 223, 185);
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+header ul li {
+  margin-right: 30px;
+}
+header ul li a {
+  font-weight: 700;
+  color: black;
+  cursor: pointer;
+  transition: color 0.2s ease-in;
+}
+header ul li:hover a {
+  color: rgb(22, 96, 30);
+}
+
+.imgBox {
+  grid-area: imgbox;
+  overflow-y: hidden;
+  background: url(img/pexels-oleksandr-tiupa-192136.jpg);
+  background-size: cover;
+}
+.slide-in {
+  animation: slideIn 2s forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'logo logo'
+      'header header'
+      'imgbox imgbox'
+      'main main'
+      'quotes quotes'
+      'btn1 btn2';
+    grid-template-rows: 100px 80px 50vh auto auto 100px;
+  }
+  .logo a {
+    font-size: 30px;
+  }
+  header {
+    justify-content: center;
+  }
+  header ul {
+    margin-right: 0px;
+    gap: 30px;
+  }
+  .main {
+    padding: 10px;
+  }
+  .main h1 {
+    font-size: 26px;
+    line-height: 62px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    padding-left: 0px;
+  }
+  .quotes {
+    padding: 0 20px;
+  }
+  .quotes h2 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+  }
+  .btn a {
+    font-size: 16px;
+  }
+}
